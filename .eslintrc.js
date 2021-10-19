@@ -9,12 +9,19 @@ module.exports = {
   },
   extends: [
     '@nuxtjs',
-    'prettier',
-    'prettier/vue',
-    'plugin:prettier/recommended',
+    "eslint:recommended",
     'plugin:nuxt/recommended',
   ],
-  plugins: ['prettier'],
+  plugins: ["es-beautifier"],
   // add your custom rules here
-  rules: {},
+
+  rules: {
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    "comma-dangle": 0,
+    "linebreak-style": "off",
+    "space-before-function-paren": 0,
+    "semi": 0,
+    'vue/multiline-html-element-content-newline': 'off',
+  },
 }

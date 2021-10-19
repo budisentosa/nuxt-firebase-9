@@ -2,21 +2,49 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">Nuxt Firebase v9</h1>
+      <h1 class="title">
+        Nuxt Firebase v9
+      </h1>
       <div class="links">
-        <button class="button--green shadow" @click="register">Register</button>
-        <button class="button--green shadow" @click="login">Login</button>
-        <button class="button--green shadow" @click="logout">Logout</button>
-        <button class="button--green shadow" @click="getUser">
+        <button
+          class="button--green shadow"
+          @click="register"
+        >Register</button>
+        <button
+          class="button--green shadow"
+          @click="login"
+        >
+          Login
+        </button>
+        <button
+          class="button--green shadow"
+          @click="logout"
+        >
+          Logout
+        </button>
+        <button
+          class="button--green shadow"
+          @click="getUser"
+        >
           Current User
         </button>
-        <button class="button--green shadow" @click="clearScreen">
+        <button
+          class="button--green shadow"
+          @click="clearScreen"
+        >
           Clear Screen
         </button>
-        <button class="button--green shadow" @click="sendMailVerification">
+
+        <button
+          class="button--green shadow"
+          @click="sendMailVerification"
+        >
           Verify Email
         </button>
-        <button class="button--red shadow" @click="deleteUser">
+        <button
+          class="button--red shadow"
+          @click="deleteUser"
+        >
           Delete User
         </button>
       </div>
@@ -27,7 +55,6 @@
         <pre>{{ response }}</pre>
       </div>
       <div>Demo Firebase v9</div>
-      <br />
     </div>
   </div>
 </template>
@@ -46,13 +73,17 @@ export default {
   mounted() {
     this.$fire.auth.onAuthStateChanged((u) => {
       console.log('auth user changed ', u)
+      if (!this.$fire.auth.currentUser) {
+        console.log('gak ada')
+      } else {
+        const { displayName, email, emailVerified } =
+          this.$fire.auth.currentUser
 
-      const { displayName, email, emailVerified } = this.$fire.auth.currentUser
-
-      this.currentUser = Object.assign(
-        {},
-        { displayName, email, emailVerified }
-      )
+        this.currentUser = Object.assign(
+          {},
+          { displayName, email, emailVerified }
+        )
+      }
     })
   },
   methods: {
