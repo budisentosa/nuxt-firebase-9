@@ -46,6 +46,13 @@ export default {
   mounted() {
     this.$fire.auth.onAuthStateChanged((u) => {
       console.log('auth user changed ', u)
+
+      const { displayName, email, emailVerified } = this.$fire.auth.currentUser
+
+      this.currentUser = Object.assign(
+        {},
+        { displayName, email, emailVerified }
+      )
     })
   },
   methods: {
