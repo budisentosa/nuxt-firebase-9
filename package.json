@@ -12,7 +12,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@metadonors/odoo-jsonrpc": "^0.5.1",
+    "@budi/odoo-jsonrpc": "github:budisentosa/odoo-jsonrpc",
     "@nuxtjs/axios": "^5.12.5",
     "core-js": "^3.8.3",
     "firebase": "^9.1.3",

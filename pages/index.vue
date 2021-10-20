@@ -64,6 +64,7 @@
 
 <script>
 // import axios from 'axios'
+import OdooRPC from '@budi/odoo-jsonrpc'
 
 export default {
   data() {
@@ -179,36 +180,49 @@ export default {
         this.response = { errorCode: error.code, errorMessage: error.message }
       }
     },
-    aaa() {
-      console.log('aaa')
-      const data = {
-        jsonrpc: '2.0',
-        params: {
-          db: 'oce01',
-          login: 'admin',
-          password: 'admin',
-        },
-      }
-
-      const config = {
-        method: 'get',
-        url: '/api/web/session/authenticate',
-        headers: {
-          'Content-Type': 'application/json',
-          withCredentials: true,
-        },
-        data,
-      }
-      console.log('data', data)
-
-      this.$axios(config)
-        .then(function (response) {
-          console.log(JSON.stringify(response.data))
-        })
-        .catch(function (error) {
-          console.log('errna')
-          console.log(error)
-        })
+    async aaa() {
+      const odoo = new OdooRPC({
+        host: '/api',
+        database: 'oce01',
+        username: 'admin',
+        password: 'admin',
+      })
+      const bb = await odoo.login('admin', 'admin')
+      console.log(bb)
+      // const id = await odoo.env('res.partner').create({
+      //   name: 'Test',
+      //   email: 'test@example.com',
+      // })
+      // console.log(id)
+      const aa = await odoo.env('res.partner').browse(1)
+      console.log(aa)
+      // console.log('aaa')
+      // const data = {
+      //   jsonrpc: '2.0',
+      //   params: {
+      //     db: 'oce01',
+      //     login: 'admin',
+      //     password: 'admin',
+      //   },
+      // }
+      // const config = {
+      //   method: 'get',
+      //   url: '/api/web/session/authenticate',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     withCredentials: true,
+      //   },
+      //   data: Object.assign({}, data),
+      // }
+      // console.log('data', data)
+      // this.$axios(config)
+      //   .then(function (response) {
+      //     console.log(JSON.stringify(response.data))
+      //   })
+      //   .catch(function (error) {
+      //     console.log('errna')
+      //     console.log(error)
+      //   })
     },
   },
 }
