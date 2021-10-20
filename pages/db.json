@@ -1,0 +1,82 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "jsonrpc": "2.0",
+      "params": {
+        "db": "oce01",
+        "login": "admin",
+        "password": "admin"
+      },
+      "id": 2
+    },
+    {
+      "jsonrpc": "2.0",
+      "params": {
+        "db": "oce01",
+        "login": "admin",
+        "password": "admin"
+      },
+      "id": 3
+    },
+    {
+      "jsonrpc": "2.0",
+      "params": {
+        "db": "oce01",
+        "login": "admin",
+        "password": "admin"
+      },
+      "id": 4
+    },
+    {
+      "jsonrpc": "2.0",
+      "params": {
+        "db": "oce01",
+        "login": "admin",
+        "password": "admin"
+      },
+      "id": 5
+    },
+    {
+      "jsonrpc": "2.0",
+      "params": {
+        "db": "oce01",
+        "login": "admin",
+        "password": "admin"
+      },
+      "id": 6
+    },
+    {
+      "jsonrpc": "2.0",
+      "params": {
+        "db": "oce01",
+        "login": "admin",
+        "password": "admin"
+      },
+      "id": 7
+    },
+    {
+      "jsonrpc": "2.0",
+      "params": {
+        "db": "oce01",
+        "login": "admin",
+        "password": "admin"
+      },
+      "id": 8
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

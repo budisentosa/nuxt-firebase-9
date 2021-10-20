@@ -47,6 +47,9 @@
         >
           Delete User
         </button>
+        <button @click="aaa">
+          aaaa
+        </button>
       </div>
       <div class="align-left">
         Current user :
@@ -60,6 +63,8 @@
 </template>
 
 <script>
+// import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -173,6 +178,37 @@ export default {
       } catch (error) {
         this.response = { errorCode: error.code, errorMessage: error.message }
       }
+    },
+    aaa() {
+      console.log('aaa')
+      const data = {
+        jsonrpc: '2.0',
+        params: {
+          db: 'oce01',
+          login: 'admin',
+          password: 'admin',
+        },
+      }
+
+      const config = {
+        method: 'get',
+        url: '/api/web/session/authenticate',
+        headers: {
+          'Content-Type': 'application/json',
+          withCredentials: true,
+        },
+        data,
+      }
+      console.log('data', data)
+
+      this.$axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data))
+        })
+        .catch(function (error) {
+          console.log('errna')
+          console.log(error)
+        })
     },
   },
 }

@@ -47,12 +47,24 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // '@nuxtjs/proxy',
     // '@nuxtjs/firebase',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
-
+  axios: {
+    proxy: true,
+    baseURL: 'http://localhost:3004',
+    proxyHeaders: true,
+    credentials: false
+  },
+  proxy: {
+    '/api/': {
+      target: 'http://localhost:8069',
+      pathRewrite: { '^/api/': '' },
+      changeOrigin: true
+    }
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
