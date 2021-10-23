@@ -181,6 +181,9 @@ export default {
       }
     },
     async aaa() {
+      console.log('key')
+      console.log(this.$config.odooPublic)
+      console.log(this.$config.odooPrivate)
       const odoo = new OdooRPC({
         host: '/api',
         database: 'oce01',

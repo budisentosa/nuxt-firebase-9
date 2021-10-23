@@ -7,6 +7,10 @@ export default {
     messagingSenderId: process.env.messagingSenderId,
     ppId: process.env.ppId,
     measurementId: process.env.measurementId,
+    odooPublic: process.env.odooPublic
+  },
+  privateRuntimeConfig: {
+    odooPrivate: process.env.odooPrivate
   },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
