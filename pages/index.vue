@@ -50,6 +50,9 @@
         <button @click="aaa">
           aaaa
         </button>
+        <button @click="bbb">
+          bbb
+        </button>
       </div>
       <div class="align-left">
         Current user :
@@ -65,6 +68,7 @@
 <script>
 // import axios from 'axios'
 import OdooRPC from '@budi/odoo-jsonrpc'
+import axios from 'axios'
 
 export default {
   data() {
@@ -179,6 +183,10 @@ export default {
       } catch (error) {
         this.response = { errorCode: error.code, errorMessage: error.message }
       }
+    },
+    async bbb() {
+      const ccc = await axios.get('http://localhost:3000/aaaa/aa')
+      console.log(ccc.data)
     },
     async aaa() {
       console.log('key')

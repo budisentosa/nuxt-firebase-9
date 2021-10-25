@@ -9,9 +9,6 @@ export default {
     measurementId: process.env.measurementId,
     odooPublic: process.env.odooPublic
   },
-  privateRuntimeConfig: {
-    odooPrivate: process.env.odooPrivate
-  },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
@@ -71,7 +68,16 @@ export default {
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-
+  serverMiddleware: [
+    '~/serverMiddleware/aaaa.js',
+    {
+      path: '/helloapi',
+      handler(req, res, next) {
+        res.setHeader('Content-Type', 'application/json')
+        res.end(JSON.stringify({ this: 'is', a: 'test' }))
+      },
+    },
+  ],
   // firebase configuration
   firebase: {
     services: {
